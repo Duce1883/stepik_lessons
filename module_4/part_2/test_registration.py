@@ -19,6 +19,7 @@ def browser():
 
 
 def test_user_registration(browser):
+    # Arrange
     login_link_selector = "#login_link"
     register_form_selector = "#register_form"
     messages_selector = '#messages'
@@ -30,8 +31,10 @@ def test_user_registration(browser):
     login_link.click()
     WebDriverWait(browser, 15).until(EC.presence_of_element_located((By.CSS_SELECTOR, register_form_selector)))
 
+    # Act
     fill_form(browser, register_form_selector)
 
+    # Assert
     WebDriverWait(browser, 15).until(EC.presence_of_element_located((By.CSS_SELECTOR, messages_selector)))
     browser.find_element_by_css_selector(alert_success_selector)
 

@@ -9,10 +9,13 @@ ADD_TO_BUTTON_EXPECTED_TEXT = {"ru": "Добавить в корзину", "en-g
 
 
 def test_add_to_basket_button_text(browser, language):
+    # Arrange
     browser.get(LINK)
 
+    # Act
     add_to_basket_button_selector = ".btn-add-to-basket"
     WebDriverWait(browser, 15).until(EC.presence_of_element_located((By.CSS_SELECTOR, add_to_basket_button_selector)))
     add_to_basket_button = browser.find_element_by_css_selector(add_to_basket_button_selector)
 
+    # Assert
     assert add_to_basket_button.text == ADD_TO_BUTTON_EXPECTED_TEXT[language], "Wrong text in 'add to basket' button"
