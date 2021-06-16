@@ -8,7 +8,8 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_FORM), "Add to basket form is not presented"
 
     def should_be_add_to_basket_form_button(self):
-        assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_FORM_BUTTON), "Add to basket form button is not presented"
+        assert self.is_element_present(
+            *ProductPageLocators.ADD_TO_BASKET_FORM_BUTTON), "Add to basket form button is not presented"
 
     def add_to_basket_form_button_click(self):
         button = self.browser.find_element(By.CSS_SELECTOR, ProductPageLocators.ADD_TO_BASKET_FORM_BUTTON_SELECTOR)
@@ -39,3 +40,13 @@ class ProductPage(BasePage):
 
     def get_alert_basket_price(self):
         return self.get_element_text(*ProductPageLocators.BASKET_INFO_MSG_PRICE)
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.ADD_TO_BASKET_SUCCESS_MSG_PRODUCT_NAME), \
+            "Success message is presented, but should not be"
+
+    def should_disappeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.ADD_TO_BASKET_SUCCESS_MSG_PRODUCT_NAME), \
+            "Success message is not disappeared, but expected to be"
+
+
