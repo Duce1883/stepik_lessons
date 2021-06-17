@@ -1,4 +1,5 @@
 import pytest
+from .pages.basket_page import BasketPage
 
 from .pages.product_page import ProductPage
 
@@ -64,3 +65,13 @@ class TestProductPage():
         page.open()
         page.should_be_login_link()
         page.go_to_login_page()
+
+    def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser):
+        prod_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+        page = ProductPage(browser, prod_link)
+        page.open()
+        page.should_be_basket_link()
+        page.go_to_basket_page()
+        new_page = BasketPage(browser, prod_link)
+        new_page.should_be_empty_basket()
+        new_page.should_be_empty_basket_message()
