@@ -1,18 +1,16 @@
 from .base_page import BasePage
-from selenium import webdriver
 from .locators import LoginPageLocators
 from selenium.webdriver.common.by import By
 
 
 class LoginPage(BasePage):
-    def should_be_login_page(self):
-        self.should_be_login_url()
+    def should_be_login_page(self, browser):
+        self.should_be_login_url(browser)
         self.should_be_login_form()
         self.should_be_register_form()
 
-    def should_be_login_url(self):
+    def should_be_login_url(self, browser):
         # реализуйте проверку на корректный url адрес
-        browser = webdriver.Chrome()
         current_page_url = browser.current_url
         assert LoginPageLocators.LOGIN_URL in current_page_url, "Wrong page url"
 

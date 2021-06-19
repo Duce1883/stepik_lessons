@@ -6,7 +6,7 @@ class MainPageLocators:
 
 
 class LoginPageLocators:
-    LOGIN_URL = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
+    LOGIN_URL = "/accounts/login/"
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REG_FORM = (By.CSS_SELECTOR, "#register_form")
     REG_FORM_EMAIL_SELECTOR = "#id_registration-email"
@@ -38,4 +38,4 @@ class BasePageLocators:
 
 class BasketPageLocators:
     BASKET_ITEMS = (By.CSS_SELECTOR, ".basket-items")
-    EMPTY_BASKET_MSG = (By.XPATH, "//*[@id='content_inner']//*[contains(text(), 'Ваша корзина пуста')]")
+    EMPTY_BASKET_MSG = (By.XPATH, "//*[@id='content_inner']//*[contains(text(), 'Your basket is empty')]")
