@@ -131,3 +131,7 @@ class BasePage:
     def should_be_special_sales_offer(self):
         assert self.is_element_present(
             *BasePageLocators.SPECIAL_SALES_OFFERS), "Special sales offers block is not presented"
+
+    def should_be_language_switcher(self):
+        assert self.is_element_present(
+            *BasePageLocators.LANGUAGE_SWITCHER_SELECT), "Language switcher is not presented"

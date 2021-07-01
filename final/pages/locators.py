@@ -43,6 +43,7 @@ class BasePageLocators:
     BROWSE_MENU_FIRST_BUTTON = (By.CSS_SELECTOR, "#browse .dropdown-menu li:first-child a")
     BROWSE_MENU_LAST_BUTTON = (By.CSS_SELECTOR, "#browse .dropdown>.dropdown-menu>li:last-child a")
     SPECIAL_SALES_OFFERS = (By.XPATH, "//*[@class='content']//h2[contains(text(), 'Special sales offer')]")
+    LANGUAGE_SWITCHER_SELECT = (By.CSS_SELECTOR, 'select[name="language"]')
 
 
 class BasketPageLocators:
